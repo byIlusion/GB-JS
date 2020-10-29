@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Базовый курс JavaScript. Lesson 01</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/script.js" defer></script>
+  <script src="./js/async.js" async></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Базовый курс JavaScript</h1>
+    <h2>Lesson 01</h2>
+    
+    <div class="task">
+      <h3>Task 1</h3>
+      <p class="task-text">Задать температуру в градусах по Цельсию. Вывести в alert соответствующую температуру в градусах по Фаренгейту. Подсказка: расчёт идёт по формуле: Tf = (9 / 5) * Tc + 32, где Tf – температура по Фаренгейту, Tc – температура по Цельсию</p>
+      <button title="Запустить решение задания 1" onclick="task_01_01()">Task 1</button>
+    </div>
+    
+    <div class="task">
+      <h3>Task 2-3. Работа с переменными</h3>
+      <p class="task-text">Работа с переменными.<br>
+        Объявить две переменные: admin и name. Записать в name строку "Василий"; Скопировать значение из name в admin. Вывести admin (должно вывести «Василий»).</p>
+      <button title="Запустить решение задания 2-3" onclick="task_01_03()">Task 2-3</button>
+    </div>
+    
+    <div class="task">
+      <h3>Task 4</h3>
+      <p class="task-text">*Чему будет равно JS-выражение 1000 + "108"/</p>
+      <button title="Запустить решение задания 4" onclick="task_01_04()">Task 4</button>
+      <p class="task-answer">Ответ: '1000108'. <br>
+      Это связано с тем что при сложении числа и строки число переводится в строчный тип, т.е. производится операция конкатенации строк.</p>
+    </div>
+    
+    <div class="task">
+      <h3>Task 5</h3>
+      <p class="task-text">*Самостоятельно разобраться с атрибутами тега script (async и defer)/</p>
+      <p class="task-answer">Скрипт с атрибутом defer выполняется только после полной загрузки контента страницы. Это доказывает то что вывод в консоль из этого скрипта выполняется после вывода в консоль из тела страницы.</p>
+      <p class="task-answer">Скрипт с атрибутом async выполняется асинхронно, т.е. не зависимо от загрузки контента страницы. Это доказывает то что контент страницы загрузился даже не смотря на сообщение alert. Без атрибута async контент не загрузится пока не закроется окно alert.</p>
+    </div>
+
+  </div>
+  <script>
+    console.log('Task 5. Выполненеие скрипта из конца <body>');
+  </script>
+</body>
+</html>
