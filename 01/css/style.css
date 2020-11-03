@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: cornsilk;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button {
+  font-size: 1.5em;
+  padding: 0.25em 2em;
+  border-radius: 2em;
+  border: 1px solid olivedrab;
+  background-color: palegreen;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  border: 1px solid olivedrab;
+  background-color: springgreen;
+}
+
+.container {
+  margin: 10px auto;
+  padding: 10px 20px;
+  width: 900px;
+  background-color: white;
+  border: 1px solid lightgray;
+}
+
+.task {
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  border: 1px solid gray;
+}
+
+.task-text {
+  padding-left: 10px;
+  border-left: 3px solid cadetblue;
+  margin-left: 10px;
+  color: gray;
+  font-style: italic;
+}
+
+.task-answer {
+  color: darkblue;
+}
