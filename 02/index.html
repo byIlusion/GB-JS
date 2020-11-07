@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Базовый курс JavaScript. Lesson 02</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: cornsilk;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    button {
+      font-size: 1.5em;
+      padding: 0.25em 2em;
+      border-radius: 2em;
+      border: 1px solid olivedrab;
+      background-color: palegreen;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      border: 1px solid olivedrab;
+      background-color: springgreen;
+    }
+
+    code,
+    pre {
+      display: inline-block;
+      border: 1px solid;
+      background-color: aliceblue;
+    }
+
+    code {
+      padding: 1px 2px;
+    }
+
+    pre {
+      padding: 10px;
+    }
+
+    .container {
+      margin: 10px auto;
+      padding: 10px 20px;
+      width: 900px;
+      background-color: white;
+      border: 1px solid lightgray;
+    }
+
+    .task {
+      margin: 20px 0;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: whitesmoke;
+      border: 1px solid gray;
+    }
+
+    .task-text {
+      padding-left: 10px;
+      border-left: 3px solid cadetblue;
+      margin-left: 10px;
+      color: gray;
+      font-style: italic;
+    }
+
+    .task-answer {
+      color: darkblue;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Базовый курс JavaScript</h1>
+    <h2>Lesson 012</h2>
+
+    <!-- <div class="task">
+      <h3>Task 1</h3>
+      <p class="task-text">Почему код дает именно такие результаты?</p>
+      <p>
+      <pre>
+var a = 1, b = 1, c, d;
+c = ++a; alert(c);           // 2
+d = b++; alert(d);           // 1
+c = (2+ ++a); alert(c);      // 5
+d = (2+ b++); alert(d);      // 4
+alert(a);                    // 3
+alert(b);</pre>
+      </p>
+      <p class="task-answer"></p>
+    </div> -->
+
+    <!-- <div class="task">
+      <h3>Task 2</h3>
+      <p class="task-text">Чему будет равен x в примере ниже?</p>
+      <pre>
+var a = 2;
+var x = 1 + (a *= 2);</pre>
+      <p class="task-answer"></p>
+    </div> -->
+
+    <!-- <div class="task">
+      <h3>Task 3</h3>
+      <p class="task-text">*Объявить две целочисленные переменные a и b и задать им произвольные начальные значения.
+        Затем написать скрипт, который работает по следующему принципу:</p>
+      <ul>
+        <li>если a и b положительные, вывести их разность;</li>
+        <li>если а и b отрицательные, вывести их произведение;</li>
+        <li>если а и b разных знаков, вывести их сумму;</li>
+      </ul>
+      <p><i>ноль можно считать положительным числом.</i></p>
+      <p class="task-answer"></p>
+    </div> -->
+
+    <div class="task">
+      <h3>Task 4</h3>
+      <p class="task-text">Присвоить переменной а значение в промежутке [0..15]. С помощью оператора switch организовать
+        вывод чисел от a до 15.</p>
+      <button title="Запустить решение задания 4" onclick="task_04()">Task 4</button>
+    </div>
+
+    <div class="task">
+      <h3>Task 5</h3>
+      <p class="task-text">Реализовать основные 4 арифметические операции в виде функций с двумя параметрами.
+        Обязательно использовать оператор return.</p>
+      <button title="Запустить решение задания 5" onclick="task_05()">Task 5</button>
+    </div>
+
+    <div class="task">
+      <h3>Task 6</h3>
+      <p class="task-text">Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), где
+        arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от переданного значения
+        операции выполнить одну из арифметических операций (использовать функции из пункта 5) и вернуть полученное
+        значение (использовать switch).</p>
+      <button title="Запустить решение задания 6" onclick="task_06()">Task 6</button>
+    </div>
+
+    <div class="task">
+      <h3>Task 7</h3>
+      <p class="task-text">*Сравнить null и 0. Попробуйте объяснить результат.</p>
+      <button title="Запустить решение задания 7" onclick="task_07()">Task 7</button>
+      <p class="task-answer">
+      <ol>
+        <li>null - это объект, который обозначает пустоту (ничего), а 0 - является числом.</li>
+        <li><code>null + 5 = 5</code> - т.к. null преобразуется к числовому типу</li>
+        <li><code>null == 0 = false</code> - т.к. null не является числом и обозначает пустоту</li>
+        <li><code>+null == 0 = true</code> - в данном случае null преобразется к числу 0</li>
+      </ol>
+      </p>
+    </div>
+
+    <div class="task">
+      <h3>Task 8</h3>
+      <p class="task-text">*С помощью рекурсии организовать функцию возведения числа в степень. Формат: function
+        power(val, pow), где val – заданное число, pow – степень.</p>
+      <button title="Запустить решение задания 8" onclick="task_08()">Task 8</button>
+    </div>
+
+    <div class="task">
+      <h3>Task 9</h3>
+      <p class="task-text">Камень, ножницы, Бумага</p>
+      <button onclick="rock_game(0)">Камень</button>
+      <button onclick="rock_game(1)">Ножницы</button>
+      <button onclick="rock_game(2)">Бумага</button>
+    </div>
+
+  </div>
+
+  <script>
+    function task_04() {
+      let i = input("Введите число от 0 до 15: ");
+      switch (i) {
+        case 0: console.log(i++);
+        case 1: console.log(i++);
+        case 2: console.log(i++);
+        case 3: console.log(i++);
+        case 4: console.log(i++);
+        case 5: console.log(i++);
+        case 6: console.log(i++);
+        case 7: console.log(i++);
+        case 8: console.log(i++);
+        case 9: console.log(i++);
+        case 10: console.log(i++);
+        case 11: console.log(i++);
+        case 12: console.log(i++);
+        case 13: console.log(i++);
+        case 14: console.log(i++);
+        case 15: {
+          console.log(i++);
+          break;
+        }
+        default: console.log('Out of range');
+      }
+    }
+
+    function task_05() {
+      let a = input("a = ");
+      let b = input("b = ");
+      console.log(a + " + " + b + " = " + sum(a, b));
+      console.log(a + " - " + b + " = " + dif(a, b));
+      console.log(a + " * " + b + " = " + mul(a, b));
+      console.log(a + " / " + b + " = " + div(a, b));
+    }
+
+    function task_06() {
+      let a = input("a = ");
+      let b = input("b = ");
+      let op = prompt("Введите операцию (+-*/): ");
+      let result = mathOperation(a, b, op);
+      if (!!result) {
+        alert(a + op + b + " = " + result);
+      }
+      else {
+        alert("Ошибка ввода");
+      }
+    }
+
+    function task_07() {
+      console.log("null + 5 = " + (null + 5));  // 5, т.к. null преобразуется к числу 0
+      console.log("null == 0 = " + (null == 0)); // false, т.к. null не является числом и обозначает пустоту
+      console.log("+null == 0 = " + (+null == 0)); // true, т.к. null при преобразовании в число становится 0.
+    }
+
+    function task_08() {
+      let a = input("Введите число: ");
+      let p = input("Введите степень: ");
+      let s = power(a, p);
+      alert(a + "^" + p + " = " + s);
+    }
+
+    function input(msg = 'Число: ') {
+      return +prompt(msg)
+    }
+
+    function sum(a, b) {
+      return a + b;
+    }
+
+    function dif(a, b) {
+      return a - b;
+    }
+
+    function mul(a, b) {
+      return a * b;
+    }
+
+    function div(a, b) {
+      return a / b;
+    }
+
+    function mathOperation(arg1, arg2, operation) {
+      switch (operation) {
+        case '+': return sum(arg1, arg2);
+        case '-': return dif(arg1, arg2);
+        case '*': return mul(arg1, arg2);
+        case '/': return div(arg1, arg2);
+        default: return null;
+      }
+    }
+
+    function power(val, pow, s = 1) {
+      if (pow <= 0) {
+        return s;
+      }
+      s *= val;
+      return power(val, --pow, s);
+    }
+
+    function rock_game(shape) {
+      const shapes = ['Камень', 'Ножницы', 'Бумага'];
+      let comp_shape = Math.round(Math.random() * 2, 0);
+      let msg = shapes[shape] + " vs " + shapes[comp_shape];
+      if (shape + 1 == comp_shape || shape - 2 == comp_shape) {
+        msg += "\nВы выиграли! :)";
+      }
+      else if (shape == comp_shape) {
+        msg += "\nНичья...";
+      }
+      else {
+        msg += "\nВы проиграли. :(";
+      }
+      console.log(msg);
+      alert(msg);
+    }
+  </script>
+</body>
+
+</html>
