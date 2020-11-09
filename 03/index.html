@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Базовый курс JavaScript. Lesson 03</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: cornsilk;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    button {
+      font-size: 1.5em;
+      padding: 0.25em 2em;
+      border-radius: 2em;
+      border: 1px solid olivedrab;
+      background-color: palegreen;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      border: 1px solid olivedrab;
+      background-color: springgreen;
+    }
+
+    code,
+    pre {
+      display: inline-block;
+      border: 1px solid;
+      background-color: aliceblue;
+    }
+
+    code {
+      padding: 1px 2px;
+    }
+
+    pre {
+      padding: 10px;
+    }
+
+    .container {
+      margin: 10px auto;
+      padding: 10px 20px;
+      width: 900px;
+      background-color: white;
+      border: 1px solid lightgray;
+    }
+
+    .task {
+      margin: 20px 0;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: whitesmoke;
+      border: 1px solid gray;
+    }
+
+    .task-text {
+      padding-left: 10px;
+      border-left: 3px solid cadetblue;
+      margin-left: 10px;
+      color: gray;
+      font-style: italic;
+    }
+
+    .task-answer {
+      color: darkblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Базовый курс JavaScript</h1>
+    <h2>Lesson 03</h2>
+
+    <div class="task">
+      <h3>Task 1</h3>
+      <p class="task-text">С помощью цикла while вывести все простые числа в промежутке от 0 до 100.</p>
+      <button title="Запустить решение задания 1" onclick="task_01()">Task 1</button>
+    </div>
+
+    <div class="task">
+      <h3>Task 4</h3>
+      <p class="task-text">*Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла. Выглядеть это должно
+        так:</p>
+      <p>
+      <pre>for(…){// здесь пусто}</pre>
+      </p>
+      <button title="Запустить решение задания 4" onclick="task_04()">Task 4</button>
+    </div>
+
+    <div class="task">
+      <h3>Task 5</h3>
+      <p class="task-text">*Нарисовать пирамиду с помощью console.log, как показано на рисунке, только у вашей пирамиды
+        должно быть 20 рядов, а не 5:</p>
+      <div>
+        <pre>
+x
+xx
+xxx
+xxxx
+xxxxx</pre>
+      </div>
+      <button title="Запустить решение задания 5" onclick="task_05()">Task 5</button>
+    </div>
+
+    <div class="task">
+      <h3>Task 6</h3>
+      <p class="task-text">Используя пройденное - создать свой вариант игры "БЫКИ и КОРОВЫ" (ограничение 10 ходов);</p>
+      <button onclick="ox_cow_game()">Играть "БЫКИ и КОРОВЫ"</button>
+    </div>
+
+  </div>
+
+  <script>
+    // Функция задания 1
+    function task_01() {
+      console.log(`Простые числа от 1 до 100:`);
+      let i = 1;
+      while (i <= 100) {
+        let j = 1;
+        let s = 0;
+        while (j < i) {
+          if (i % j === 0) {
+            s++;
+          }
+          j++;
+        }
+        if (s <= 1) {
+          console.log(i);
+        }
+        i++;
+      }
+    }
+
+    // Функция задания 4
+    function task_04() {
+      console.log(`Вывод чисел от 0 до 9:`);
+      for (i = 0; i < 10; console.log(i++)) { }
+    }
+
+    // Функция задания 5
+    function task_05() {
+      console.log(`Рисуем пирамиду:`);
+      const char = 'x';
+      let str = '';
+      do {
+        str += char;
+        console.log(str);
+      } while (str.length < 20);
+    }
+
+    // Функция задания 6
+    function ox_cow_game() {
+      const attempts_count = 10;
+      let current_attempt = 1;
+      const pc = get_rand_num();
+      let attempts = [];
+      // console.log(pc);
+      while (current_attempt <= attempts_count) {
+        msg = current_attempt == 1 ? 'Игра "БЫКИ и КОРОВЫ"\nНужно отгадать 4 разных числа в нужном порядке.\n' : '';
+        attempts.forEach(row => msg += row);
+        msg += `Попытка: ${current_attempt}/${attempts_count}\nВаше число? `;
+        user = prompt(msg);
+        if (!user) {
+          alert('Выход');
+          break;
+        }
+        user = user.split('').map(n => +n).filter(n => !isNaN(n));
+        // console.log(user);
+        if (user.length != 4) {
+          msg = 'Не правильный ввод!\nНеобходимо вводить строку из 4-х чисел.\nПопробуйте еще!\n';
+          continue;
+        }
+        let ox = 0;
+        let cow = 0;
+        user.forEach(function (n, i) {
+          if (n === pc[i]) {
+            ox++;
+          }
+          else if (pc.indexOf(n) >= 0) {
+            cow++;
+          }
+        });
+        if (ox === 4) {
+          alert(`Победа!\nВсе верно! PC загадал: ${pc.join('')}`);
+          break;
+        }
+        attempts.push(`${attempts.length + 1}: ${user.join('')}. ox: ${ox}; cow: ${cow}\n`);
+        msg = '';
+        if (ox > 0) {
+          msg += "Быков: " + ox + ' ';
+        }
+        if (cow > 0) {
+          msg += "Коров: " + cow;
+        }
+        if (msg == '') {
+          msg = 'Ничего!';
+        }
+        msg += current_attempt < attempts_count ? '\nПробуй еще!' : '\nВы проиграли!\nPC загадал: ' + pc.join('');
+        alert(msg);
+        current_attempt++;
+      }
+    }
+
+    function get_rand_num() {
+      let num = [];
+      let elements = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      while (num.length < 4) {
+        let i = Math.floor(Math.random() * elements.length);
+        num.push(elements[i]);
+        elements.splice(i, 1);
+      }
+      return num;
+    }
+
+  </script>
+
+</body>
+
+</html>
