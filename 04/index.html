@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Базовый курс JavaScript. Lesson 04</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: cornsilk;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    button {
+      font-size: 1.5em;
+      padding: 0.25em 2em;
+      border-radius: 2em;
+      border: 1px solid olivedrab;
+      background-color: palegreen;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      border: 1px solid olivedrab;
+      background-color: springgreen;
+    }
+
+    code,
+    pre {
+      display: inline-block;
+      border: 1px solid;
+      background-color: aliceblue;
+    }
+
+    code {
+      padding: 1px 2px;
+    }
+
+    pre {
+      padding: 10px;
+    }
+
+    .container {
+      margin: 10px auto;
+      padding: 10px 20px;
+      width: 900px;
+      background-color: white;
+      border: 1px solid lightgray;
+    }
+
+    .task {
+      margin: 20px 0;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: whitesmoke;
+      border: 1px solid gray;
+    }
+
+    .task-text {
+      padding-left: 10px;
+      border-left: 3px solid cadetblue;
+      margin-left: 10px;
+      color: gray;
+      font-style: italic;
+    }
+
+    .task-answer {
+      color: darkblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Базовый курс JavaScript</h1>
+    <h2>Lesson 04</h2>
+
+    <div class="task">
+      <h3>Task 1</h3>
+      <p class="task-text">Написать функцию, преобразующую число в объект. Передавая на вход число от 0 до 999, мы
+        должны получить на выходе объект, в котором в соответствующих свойствах описаны единицы, десятки и сотни.
+        Например, для числа 245 мы должны получить следующий объект: {‘единицы’: 5, ‘десятки’: 4, ‘сотни’: 2}. Если
+        число превышает 999, необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект.
+      </p>
+      <button title="Запустить решение задания 1" onclick="task_01()">Task 1</button>
+    </div>
+
+    <div class="task">
+      <h3>Task 2</h3>
+      <p class="task-text">Игра «Быки и Коровы». Реализация через объекты</p>
+      <button title="Запустить решение задания 2" onclick="task_02()">Играть «Быки и Коровы»</button>
+    </div>
+
+    <div class="task">
+      <h3>Task 3</h3>
+      <p class="task-text">Игра «Камень, Ножницы, Бумага». Реализация через объекты</p>
+      <button title="Выкинуть Камень" onclick="task_03(0)">Камень</button>
+      <button title="Выкинуть Ножницы" onclick="task_03(1)">Ножницы</button>
+      <button title="Выкинуть Бумага" onclick="task_03(2)">Бумага</button>
+    </div>
+
+    <div class="task">
+      <h3>Пример струткуры для организации хранения товаров</h3>
+      <button title="Вывести в консоль" onclick="shop_items()">Вывести в консоль</button>
+    </div>
+
+  </div>
+
+  <script>
+    /*
+      TASK 1
+    */
+    // Функция задания 1
+    function task_01() {
+      console.log(`Создание объекта из числа:`);
+      let num = getUserNum();
+      console.log('Пользователь ввел: ' + num);
+      let numObj = getNumObj(num);
+      console.log(numObj);
+    }
+
+    // Запрос от пользователя числа
+    function getUserNum() {
+      return +prompt("Введите число:");
+    }
+
+    // Создание объекта числа
+    function getNumObj(num) {
+      const orders = ['units', 'decades', 'hundreds'];
+      let numObj = {};
+      if (num > 0 && num < 1000) {
+        let order = 0;
+        while (num) {
+          numObj[orders[order]] = num % 10;
+          num = Math.floor(num / 10);
+          order++;
+        }
+      }
+      else {
+        console.log("Введенное число выходит за пределы от 0 до 999");
+      }
+      return numObj;
+    }
+
+
+    /*
+      TASK 2 (Bulls & Cows)
+    */
+    // Функция задания 2
+    function task_02() {
+      BullsAndCows.game();
+    }
+
+    // Игра Быки и Коровы в виде объекта
+    let BullsAndCows = {
+      game() {
+        this.init_game();
+        console.log(this.get_roles());
+        let play = true;
+        let pc = this.get_rand_num();
+        console.log(pc);
+        while (play) {
+          this.attempts_count--;
+          user = this.get_user_num();
+          play = this.check(pc, user);
+          console.log(this.get_status());
+          if (!play) {
+            // Победа!
+            console.log(`Вы выиграли! Все верно, PC загадал: ${pc.join('')}`);
+          }
+          else if (this.attempts_count <= 0) {
+            play = false;
+            console.log(`Вы проиграли! PC загадал: ${pc.join('')}`);
+          }
+        }
+      },
+
+      init_game() {
+        this.num_length = 4;
+        this.attempts_count = 10;
+        this.attempts = [];
+      },
+
+      check(pc, user) {
+        let attempt = {
+          user: user,
+          bulls: 0,
+          cows: 0
+        };
+        pc.forEach((n, i) => {
+          if (n === user[i])
+            attempt.bulls++;
+          else if (user.includes(n))
+            attempt.cows++;
+        });
+        this.attempts.push(attempt);
+        return attempt.bulls === 4 ? false : true;
+      },
+
+      get_user_num(warning = false) {
+        let msg = warning ? 'Не правильный ввод!\n' : '';
+        let num = [...prompt(`${msg}Введите ${this.num_length} разных цифры:`)];
+        num = num.map(n => +n).filter(n => !isNaN(n));
+        if (num.length !== this.num_length) {
+          num = this.get_user_num();
+        }
+        return num;
+      },
+
+      get_rand_num() {
+        let num = [];
+        while (num.length < this.num_length) {
+          let n = Math.floor(Math.random() * 10);
+          if (!num.includes(n))
+            num.push(n);
+        }
+        return num;
+      },
+
+      get_roles() {
+        return `
+Запуск игры "БЫКИ и КОРОВЫ"
+PC загадывает ${this.num_length} разных цифры.
+Ваша задача за ${this.attempts_count} попыток отгадать эти числа и их порядок.
+PC после каждого неверно ответа будет давать подсказки:
+  Быки - сколько абсолютных совпадений;
+  Коровы - сколько чисел угадано, но не на своем месте.
+        `;
+      },
+
+      get_status() {
+        let last_attempt = this.attempts[this.attempts.length - 1];
+        return `
+Попытка: ${this.attempts.length}. Осталось: ${this.attempts_count}
+User: ${last_attempt.user.join('')}
+PC ответил:
+    Bulls: ${last_attempt.bulls}; Cows: ${last_attempt.cows}
+        `;
+      },
+    };
+
+
+
+    /*
+      TASK 3
+    */
+    // Функция задания 3
+    function task_03(user_shape) {
+      rockGame.game(user_shape);
+    }
+
+    let rockGame = {
+      shapes: ['Камень', 'Ножницы', 'Бумага'],
+      statuses: ['Вы проиграли. :(', 'Ничья...', 'ПОБЕДА! :)'],
+
+      game(user) {
+        if (user < 0 || user > 2) {
+          console.log('Недопустимый знак. Должно быть 0, 1 или 2');
+          return;
+        }
+        let pc = this.get_rand_shape();
+        let winner = this.check(user, pc);
+        console.log(this.result(user, pc, winner));
+      },
+
+      get_rand_shape() {
+        return Math.floor(Math.random() * 3);
+      },
+
+      check(user, pc) {
+        if (user + 1 === pc || user - 2 === pc)
+          return 2;
+        else if (user === pc)
+          return 1;
+        return 0;
+      },
+
+      result(user, pc, winner) {
+        return `Играем в «Камень, Ножницы, Бумага»...
+          USER vs PC
+          ${this.shapes[user]} vs ${this.shapes[pc]}
+          ${this.statuses[winner]}`;
+      },
+    };
+
+
+    /*
+        Товары магазина
+    */
+    function shop_items() {
+      let items = [
+        {
+          _id: 1,
+          title: 'MANGO TOP LIGHT 01',
+          description: 'Футбалка с принтом белая',
+          brand: 'MANGO',
+          category: 'Футболки',
+          price: 52.5,
+          images: [
+            'featuredItem1.jpg'
+          ],
+        },
+        {
+          _id: 2,
+          title: 'MANGO TOP RED W-02',
+          description: 'Блузка женская красная',
+          brand: 'MANGO',
+          category: 'Женская одежда',
+          price: 259,
+          images: [
+            'featuredItem2.jpg'
+          ],
+        },
+        {
+          _id: 3,
+          title: 'MANGO JACKET DARKBLUE M-03',
+          description: 'Куртка мужская темно синяя весна-лето',
+          brand: 'MANGO',
+          category: 'Верхняя одежда',
+          price: 187.75,
+          images: [
+            'featuredItem3.jpg'
+          ],
+        },
+        {
+          _id: 4,
+          title: 'MANGO DRESS FLOWERS W-04',
+          description: 'Платье слоновая кость с цветами',
+          brand: 'MANGO',
+          category: 'Женская одежда',
+          price: 399,
+          images: [
+            'featuredItem4.jpg'
+          ],
+        },
+        {
+          _id: 5,
+          title: 'MANGO TOP LINES W-05',
+          description: 'Блузка женская полосатая',
+          brand: 'MANGO',
+          category: 'Женская одежда',
+          price: 269,
+          images: [
+            'featuredItem5.jpg'
+          ],
+        },
+        {
+          _id: 6,
+          title: 'MANGO JACKET GRAY M-06',
+          description: 'Пиджак молодежный серый',
+          brand: 'MANGO',
+          category: 'Мужская одежда',
+          price: 129,
+          images: [
+            'featuredItem6.jpg'
+          ],
+        },
+        {
+          _id: 7,
+          title: 'MANGO PANTS BEIGE U-07',
+          description: 'Брюки бежевые',
+          brand: 'MANGO',
+          category: 'Одежда унисекс',
+          price: 599.99,
+          images: [
+            'featuredItem7.jpg'
+          ],
+        },
+        {
+          _id: 8,
+          title: 'MANGO HOODY RECTANGLES M-08',
+          description: 'Толстовка темносиняя с капюшеном и рисунком квадраты',
+          brand: 'MANGO',
+          category: 'Мужская одежда',
+          price: 62.5,
+          images: [
+            'featuredItem8.jpg'
+          ],
+        }
+      ];
+
+      console.log(items);
+    }
+
+  </script>
+
+</body>
+
+</html>
