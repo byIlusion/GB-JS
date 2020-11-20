@@ -1,25 +1,39 @@
-const TITLES = [
-  'UNO MAN T-SHIRT',
-  'DOS MAN T-SHIRT',
-  'TRES MAN T-SHIRT',
-  'CUATRO MAN T-SHIRT',
-  'CINCO MAN T-SHIRT',
-  'SIES MAN T-SHIRT',
-  'SIETE MAN T-SHIRT',
-  'OCHO MAN T-SHIRT',
-  'NUEVE MAN T-SHIRT'
+// const TITLES = [
+//   'UNO MAN T-SHIRT',
+//   'DOS MAN T-SHIRT',
+//   'TRES MAN T-SHIRT',
+//   'CUATRO MAN T-SHIRT',
+//   'CINCO MAN T-SHIRT',
+//   'SIES MAN T-SHIRT',
+//   'SIETE MAN T-SHIRT',
+//   'OCHO MAN T-SHIRT',
+//   'NUEVE MAN T-SHIRT'
+// ];
+// const PRICES = [
+//   112,
+//   89.55,
+//   99.99,
+//   12.7,
+//   25,
+//   35,
+//   79.99,
+//   134,
+//   13.9
+// ];
+
+let TITLES = [
+  'MANGO PEOPLE T-SHIRT',
+  'BANANA PEOPLE T-SHIRT',
+  'TOMATO PEOPLE T-SHIRT',
+  'POTATO PEOPLE T-SHIRT',
+  'CABBAGE PEOPLE T-SHIRT',
+  'KIWI PEOPLE T-SHIRT',
+  'PERSIMMON PEOPLE T-SHIRT',
+  'ORANGE PEOPLE T-SHIRT',
 ];
-const PRICES = [
-  112,
-  89.55,
-  99.99,
-  12.7,
-  25,
-  35,
-  79.99,
-  134,
-  13.9
-];
+let PRICES = [60, 82, 39.4, 69.69, 70, 54, 21, 49.1];
+
+console.log(JSON.stringify(fetchItems()));
 
 const catalog = {
   items: [],
@@ -76,7 +90,8 @@ function createItem(i) {
     _id: i,
     title: TITLES[i],
     price: PRICES[i],
-    image: 'product' + (i + 1) + '.jpg'
+    // image: 'https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/product' + (i + 1) + '.jpg'
+    image: 'https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/featuredItem' + (i + 1) + '.jpg'
   };
 }
 

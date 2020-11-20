@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "_id": 0,
+    "title": "UNO MAN T-SHIRT",
+    "price": 112,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/product1.jpg"
+  },
+  {
+    "_id": 1,
+    "title": "DOS MAN T-SHIRT",
+    "price": 89.55,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/product2.jpg"
+  },
+  {
+    "_id": 2,
+    "title": "TRES MAN T-SHIRT",
+    "price": 99.99,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/product3.jpg"
+  },
+  {
+    "_id": 3,
+    "title": "CUATRO MAN T-SHIRT",
+    "price": 12.7,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/product4.jpg"
+  },
+  {
+    "_id": 4,
+    "title": "CINCO MAN T-SHIRT",
+    "price": 25,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/product5.jpg"
+  },
+  {
+    "_id": 5,
+    "title": "SIES MAN T-SHIRT",
+    "price": 35,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/product6.jpg"
+  },
+  {
+    "_id": 6,
+    "title": "SIETE MAN T-SHIRT",
+    "price": 79.99,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/product7.jpg"
+  },
+  {
+    "_id": 7,
+    "title": "OCHO MAN T-SHIRT",
+    "price": 134,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/product8.jpg"
+  },
+  {
+    "_id": 8,
+    "title": "NUEVE MAN T-SHIRT",
+    "price": 13.9,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/product9.jpg"
+  }
+]
