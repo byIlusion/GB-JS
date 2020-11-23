@@ -1,0 +1,16 @@
+[
+  {
+    "_id": 1,
+    "title": "BANANA PEOPLE T-SHIRT",
+    "price": 82,
+    "amount": 2,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/featuredItem2.jpg"
+  },
+  {
+    "_id": 4,
+    "title": "CABBAGE PEOPLE T-SHIRT",
+    "price": 70,
+    "amount": 1,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/featuredItem5.jpg"
+  }
+]
