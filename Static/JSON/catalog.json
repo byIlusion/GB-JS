@@ -1,0 +1,50 @@
+[
+  {
+    "_id": 0,
+    "title": "MANGO PEOPLE T-SHIRT",
+    "price": 60,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/featuredItem1.jpg"
+  },
+  {
+    "_id": 1,
+    "title": "BANANA PEOPLE T-SHIRT",
+    "price": 82,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/featuredItem2.jpg"
+  },
+  {
+    "_id": 2,
+    "title": "TOMATO PEOPLE T-SHIRT",
+    "price": 39.4,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/featuredItem3.jpg"
+  },
+  {
+    "_id": 3,
+    "title": "POTATO PEOPLE T-SHIRT",
+    "price": 69.69,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/featuredItem4.jpg"
+  },
+  {
+    "_id": 4,
+    "title": "CABBAGE PEOPLE T-SHIRT",
+    "price": 70,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/featuredItem5.jpg"
+  },
+  {
+    "_id": 5,
+    "title": "KIWI PEOPLE T-SHIRT",
+    "price": 54,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/featuredItem6.jpg"
+  },
+  {
+    "_id": 6,
+    "title": "PERSIMMON PEOPLE T-SHIRT",
+    "price": 21,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/featuredItem7.jpg"
+  },
+  {
+    "_id": 7,
+    "title": "ORANGE PEOPLE T-SHIRT",
+    "price": 49.1,
+    "image": "https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/img/featuredItem8.jpg"
+  }
+]
