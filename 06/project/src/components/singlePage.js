@@ -14,12 +14,25 @@ const gallery = {
     this.gallery_container = document.querySelector('.slideImage');
     this.gallery_container.setAttribute('style', 'text-align: center;');
     this.btn_next = document.querySelector('.slideArrow[title="next"]');
-    this.btn_next.onclick = this._slideNext;
     this.btn_prev = document.querySelector('.slideArrow[title="previous"]');
-    this.btn_prev.onclick = this._slidePrev;
+    this._handleEvents();
+
     this.images = fetchImages();
     this._setImage(this.current_image_indx);
     this._startSlider();
+  },
+
+  _handleEvents() {
+    this.btn_next.addEventListener('click', e => {
+      e.preventDefault();
+      this._slide(1);
+      return false;
+    });
+    this.btn_prev.addEventListener('click', e => {
+      e.preventDefault();
+      this._slide(-1);
+      return false;
+    });
   },
 
   _startSlider() {
@@ -41,16 +54,6 @@ const gallery = {
       this.current_image_indx = this.images.length - 1;
     }
     this._setImage(this.current_image_indx);
-  },
-
-  _slideNext() {
-    gallery._slide(1);
-    return false;
-  },
-
-  _slidePrev() {
-    gallery._slide(-1);
-    return false;
   }
 };
 
