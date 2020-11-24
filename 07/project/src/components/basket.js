@@ -1,5 +1,5 @@
 
-const urlBasket = 'https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/JSON/catalog.json';
+const urlBasket = 'https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_07/Static/JSON/basket.json';
 
 function createBasketTemplate(item) {
   return `
@@ -22,5 +22,5 @@ function createBasketTemplate(item) {
   `;
 }
 
-let basket = initBasket(urlBasket, createBasketTemplate, '#basket-inner');
-catalog.init();
+let basket = initBasket(urlBasket, createBasketTemplate);
+basket.init();

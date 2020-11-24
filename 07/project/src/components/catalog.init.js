@@ -15,15 +15,6 @@ function initCatalog(url, f_tamplate, selector) {
       });
       this.items = response.data;
       this._render();
-      this._handleEvents();
-    },
-
-    _handleEvents() {
-      this.wrapperContainer.addEventListener('click', e => {
-        if (e.target.name === 'add-to-basket') {
-          console.log('Товар добавлен!');
-        }
-      });
     },
 
     _render() {

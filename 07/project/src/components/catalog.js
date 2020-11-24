@@ -1,12 +1,16 @@
 
-const url = 'https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/JSON/catalog.json';
+const url = 'https://raw.githubusercontent.com/byIlusion/GB-JS/master/Static/JSON/catalog.json';
 
 function createItemTemplate(item) {
     return `
         <div class="featuredItem">
             <div class="featuredImgWrap">
                 <div class="featuredBuy">
-                    <button name="add-to-basket">
+                    <button name="add-to-basket"
+                            data-id="${item._id}"
+                            data-price="${item.price}"
+                            data-title="${item.title}"
+                            data-image="${item.image}">
                         <img src="../src/assets/img/addToCart.png" alt="">
                         Add to Cart
                     </button>

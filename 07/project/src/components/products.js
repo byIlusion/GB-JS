@@ -1,5 +1,5 @@
 
-const url = 'https://raw.githubusercontent.com/byIlusion/GB-JS/lesson_06/Static/JSON/products.json';
+const url = 'https://raw.githubusercontent.com/byIlusion/GB-JS/master/Static/JSON/products.json';
 
 function itemTemplate(item) {
   return `

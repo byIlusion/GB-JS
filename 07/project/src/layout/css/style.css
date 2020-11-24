@@ -58,7 +58,7 @@ body {
 #basket .cart_item img {
   display: block;
   width: 72px;
-  height: 85px;
+  /* height: 85px; */
   transition: 0.3s;
 }
 
